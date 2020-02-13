@@ -1,0 +1,27 @@
+@import "../themes/common/principal-theme.scss";
+
+
+::ng-deep .mat-tab-links {
+    height: inherit;
+  
+    .mat-tab-link {
+      height: inherit;
+    }
+  }
+
+  mat-toolbar {
+    font: 300 16px Montserrat, sans-serif;
+    .navigation-items {
+      mat-list-item {
+        height: 100%;
+        cursor: pointer;
+      }
+  
+    }
+  
+    .logout-container {
+      width: unset;
+    }
+  
+  }
+  
