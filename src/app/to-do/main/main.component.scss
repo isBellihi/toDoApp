@@ -1,3 +1,9 @@
+@import '../../../themes/common/principal-theme.scss';
+
+.container{
+  margin-top: 20px;
+}
+
 .example-container {
   width: 400px;
   //max-width: 100%;
@@ -49,6 +55,26 @@
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.headers{
+/*.headers{
   text-align: center;
+}*/
+
+.icon-add{
+  text-align: right;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: $color-secondary;
+  cursor: pointer;
+  mat-icon{
+    vertical-align:middle;
+  }
+  span{
+    vertical-align:middle;
+  }
 }
+

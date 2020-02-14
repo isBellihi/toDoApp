@@ -1,7 +1,13 @@
-<div fxLayout="row" fxLayout.xs="column" fxFlexAlign="space-around center">
+<div class="container" fxLayout="row" fxLayout.xs="column" fxFlexAlign="space-around center">
     <div fxFlex="2"></div>
     <div fxFlex class="example-container">
-        <h2 class="headers">To do</h2>
+        <div fxLayout="row" fxLayout.xs="row" fxFlexAlign="space-between center">
+            <div fxFlex><h2 class="headers">To do</h2></div>
+            <div fxFlex class="icon-add" (click)="openDialog()">
+                <span>Add new item</span>
+                <mat-icon>add</mat-icon>
+            </div>
+        </div>
         <div
           cdkDropList
           #todoList="cdkDropList"
@@ -9,7 +15,9 @@
           [cdkDropListConnectedTo]="[doneList]"
           class="example-list"
           (cdkDropListDropped)="drop($event)">
-          <div class="example-box" fxLayout="column" fxFlexAlign="space-around center" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+          <div class="example-box" fxLayout="column" fxFlexAlign="space-around center" *ngFor="let task of todo" cdkDrag>
+              <app-task [task] ="task"></app-task>
+          </div>
         </div>
     </div>
     <div fxFlex="2"></div>
@@ -23,7 +31,9 @@
           [cdkDropListConnectedTo]="[todoList]"
           class="example-list"
           (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+          <div class="example-box" *ngFor="let item of done" cdkDrag>
+            <app-task [task] ="item"></app-task>
+          </div>
         </div>
     </div>
     <div fxFlex="2"></div>

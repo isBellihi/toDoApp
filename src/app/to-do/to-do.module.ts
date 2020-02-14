@@ -3,19 +3,27 @@ import { CommonModule } from '@angular/common';
 
 import { ToDoRoutingModule } from './to-do-routing.module';
 import { MainComponent } from './main/main.component';
-import { TaskComponent } from './task/task.component';
 import { SharedModule } from '../shared/shared.module';
+import { platformBrowser } from '@angular/platform-browser';
+import { PopUpComponent } from './pop-up/pop-up.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
-  declarations: [MainComponent, TaskComponent],
+  declarations: [MainComponent, PopUpComponent],
   imports: [
     CommonModule,
     ToDoRoutingModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ],
   exports: [
-    
-  ]
+    MainComponent,
+    PopUpComponent
+  ],
+  entryComponents: [PopUpComponent],
+  bootstrap: [],
+
 })
 export class ToDoModule { }
+
