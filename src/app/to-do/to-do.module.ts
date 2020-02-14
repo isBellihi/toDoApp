@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MainComponent } from './main/main.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { ToDoRoutingModule } from './to-do-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,14 +13,15 @@ import { ToDoRoutingModule } from './to-do-routing.module';
   imports: [
     CommonModule,
     ToDoRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [
     MainComponent,
     PopUpComponent
   ],
   entryComponents: [PopUpComponent],
-  bootstrap: [],
+  bootstrap: []
 
 })
 export class ToDoModule { }

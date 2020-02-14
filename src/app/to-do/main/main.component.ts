@@ -64,13 +64,17 @@ export class MainComponent implements OnInit {
 
   openDialog(task?: TaskModel): void {
     const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      task: task,
+      mode: "new"
+    };
+    dialogConfig.maxWidth = "400px";
+    dialogConfig.maxHeight = "500px";
+    dialogConfig.width = "400px";
+    dialogConfig.height = "350px";
     const dialogRef = this.dialog.open(PopUpComponent, dialogConfig);
-    dialogConfig.data = task;
-    dialogConfig.width = "250px"
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
     });
   }
 }

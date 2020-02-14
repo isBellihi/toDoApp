@@ -36,6 +36,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @NgModule({
   imports: [
@@ -121,7 +123,9 @@ import { MatDialogModule } from '@angular/material/dialog';
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'fr' },
-    MatDatepickerModule  ]
+    MatDatepickerModule,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }  ]
 })
 export class MaterialModule {
 }

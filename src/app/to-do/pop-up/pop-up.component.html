@@ -1,12 +1,29 @@
-<h1 mat-dialog-title>Hi ISmail</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput>
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="'Ismail'" cdkFocusInitial>Ok</button>
-</div>
+<h1>Hi Ismail, {{today | date : "dd/MM/yyyy"}}</h1>
+<form [formGroup]="taskForm">
+  <p>What do you want to do today?</p>
+  <div fxLayout="column" fxLayoutAlign="center start">
+    <div fxFlex>
+      <mat-form-field class="field">
+        <mat-label>task title here</mat-label>
+        <input formControlName="title" matInput>
+      </mat-form-field>
+    </div>
+    <div fxFlex>
+      <mat-form-field appearance="fill" class="field">
+        <mat-label>More details</mat-label>
+        <textarea matInput formControlName="description" class="field"></textarea>
+      </mat-form-field>
+    </div>
+    <div fxFlex>
+      <mat-checkbox formControlName="completed">completed</mat-checkbox>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="onClose()" cdkFocusInitial>
+      {{data.mode == "new" ? "Add" : "Update"}}
+    </button>
+    <span *ngIf="isSending">  {{'  ' + sendingText}}</span>
+  </div>
+
+</form>

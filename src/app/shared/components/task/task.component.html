@@ -1,3 +1,19 @@
-<label for="">
-    {{task.title}}
-</label>
+<div fxLayout="column" fxLayout.xs="column" fxFlexAlign="space-around center">
+    <div fxLayout="row" fxLayout.xs="row" fxFlexAlign="space-between center">
+        <div fxFlex>
+            <label for="">
+                <h3>{{task.title}}</h3>
+            </label>
+        </div>
+        <div fxFlex class="action">
+            <span class="edit-icon" (click)="editTask(task)"><mat-icon>edit</mat-icon></span>
+            <span class="remove-icon" (click)="deleteTask(task)"><mat-icon>remove</mat-icon></span>
+        </div>
+    </div>
+    <div>
+        <label for="">
+            {{task.description}}
+        </label> 
+    </div>
+
+</div>
