@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ToDoRoutingModule } from './to-do-routing.module';
-import { MainComponent } from './main/main.component';
+import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { platformBrowser } from '@angular/platform-browser';
+import { MainComponent } from './main/main.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
-import { MatDialogModule } from '@angular/material/dialog';
+import { ToDoRoutingModule } from './to-do-routing.module';
+
 
 
 @NgModule({
@@ -14,8 +12,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     CommonModule,
     ToDoRoutingModule,
-    SharedModule,
-    MatDialogModule
+    SharedModule
   ],
   exports: [
     MainComponent,
@@ -26,4 +23,3 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 })
 export class ToDoModule { }
-
