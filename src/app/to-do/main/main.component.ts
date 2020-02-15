@@ -4,6 +4,7 @@ import { TaskModel } from 'src/app/shared/models/task.model';
 import { TaskService } from 'src/app/shared/services/task.service';
 import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
+import { Subject, BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -15,6 +16,9 @@ export class MainComponent implements OnInit {
   public isLoading = false;
   public todo: TaskModel[];
   public done: TaskModel[];
+  private draggedTask: TaskModel;
+  private tasksSubject = new BehaviorSubject<TaskModel[]>([]);
+  public tasks$ = this.tasksSubject.asObservable();
 
   constructor(private taskService: TaskService, private dialog: MatDialog) { }
 
@@ -29,25 +33,29 @@ export class MainComponent implements OnInit {
           ...Object.assign({},e.payload.doc.data())
         } as TaskModel;
       })
+      this.tasksSubject.next(_tasks);
+      this.isLoading = false;
+    });
+    this.tasks$.subscribe(_tasks => {
       this.done = _tasks.filter(task => task.completed);
       this.todo = _tasks.filter(task => !task.completed);
-      this.isLoading = false;
     });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
-    }
+  dragStart(event: CdkDragDrop<string[]>, task: TaskModel){
+    this.draggedTask = task;
   }
 
-  addTask(task: TaskModel){
+  complete(event: CdkDragDrop<string[]>) {
+    if(this.draggedTask.completed === true) return;
+    this.draggedTask.completed = true
+    this.taskService.updateTask(this.draggedTask);
+  }
 
+  reset(event: CdkDragDrop<string[]>){
+    if(this.draggedTask.completed === false) return;
+    this.draggedTask.completed = false
+    this.taskService.updateTask(this.draggedTask);  
   }
 
   openDialog(task?: TaskModel): void {

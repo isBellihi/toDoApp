@@ -2,6 +2,6 @@ export interface TaskModel {
     id?: string;
     title: string;
     description: string;
-    completed: false;
+    completed: boolean;
     assignedTo?: string;
 }

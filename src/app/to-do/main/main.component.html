@@ -15,8 +15,9 @@
           [cdkDropListData]="todo"
           [cdkDropListConnectedTo]="[doneList]"
           class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" fxLayout="column" fxFlexAlign="space-around center" *ngFor="let task of todo" cdkDrag>
+          (cdkDropListDropped)="reset($event)">
+          <div class="example-box" fxLayout="column" fxFlexAlign="space-around center" *ngFor="let task of todo" 
+          cdkDrag (cdkDragStarted)="dragStart($event, task)">
               <app-task [task] ="task"></app-task>
           </div>
         </div>
@@ -31,8 +32,9 @@
           [cdkDropListData]="done"
           [cdkDropListConnectedTo]="[todoList]"
           class="example-list"
-          (cdkDropListDropped)="drop($event)">
-          <div class="example-box" *ngFor="let item of done" cdkDrag>
+          (cdkDropListDropped)="complete($event)">
+          <div class="example-box" *ngFor="let item of done" 
+          cdkDrag (cdkDragStarted)="dragStart($event, item)">
             <app-task [task] ="item"></app-task>
           </div>
         </div>
