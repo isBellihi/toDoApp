@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { SharedModule } from './shared/shared.module';
 import { platformBrowser } from '@angular/platform-browser';
-import { PopUpComponent } from './to-do/pop-up/pop-up.component';
-
 
 @NgModule({
   declarations: [
@@ -17,8 +15,8 @@ import { PopUpComponent } from './to-do/pop-up/pop-up.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

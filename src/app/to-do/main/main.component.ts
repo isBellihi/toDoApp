@@ -12,29 +12,16 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 })
 export class MainComponent implements OnInit {
 
-  /*todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
-
-  done = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];*/
+  public isLoading = false;
   public todo: TaskModel[];
   public done: TaskModel[];
 
   constructor(private taskService: TaskService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    console.log("okk")
     this.todo = [];
     this.done = []
+    this.isLoading = true;
     this.taskService.getTasks().subscribe(tasks => {
       const _tasks = tasks.map(e => {
         return {
@@ -44,6 +31,7 @@ export class MainComponent implements OnInit {
       })
       this.done = _tasks.filter(task => task.completed);
       this.todo = _tasks.filter(task => !task.completed);
+      this.isLoading = false;
     });
   }
 

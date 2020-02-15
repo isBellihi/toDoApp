@@ -11,17 +11,10 @@
 
   mat-toolbar {
     font: 300 16px Montserrat, sans-serif;
-    .navigation-items {
-      mat-list-item {
-        height: 100%;
-        cursor: pointer;
-      }
-  
-    }
-  
-    .logout-container {
-      width: unset;
-    }
-  
+
+    .menu{
+      text-align: right;
+    }  
   }
+
   

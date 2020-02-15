@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import { MaterialModule } from '../material.module';
 import { TaskComponent } from './components/task/task.component';
 import { MainComponent } from '../to-do/main/main.component';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 
 @NgModule({
   declarations: [TaskComponent],
@@ -15,14 +16,16 @@ import { MainComponent } from '../to-do/main/main.component';
     MaterialModule,
     AngularFireModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule,
+    AngularFireDatabaseModule
   ],
   exports:[
     MaterialModule,
     TaskComponent,
-    AngularFireDatabaseModule
+    AngularFireModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFirestore,AngularFireDatabaseModule, AngularFireAuthModule],
   entryComponents: [MainComponent],
   bootstrap: [],
 

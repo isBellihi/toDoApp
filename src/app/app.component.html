@@ -9,15 +9,23 @@
       <mat-label>{{toDay | date: 'dd/MM/yyyy'}}</mat-label>
     </div>
   
-    <div fxFlex>
-      <mat-list class="navigation-items" fxLayout fxLayoutAlign="end center">
-        <mat-list-item class="logout-container">
-          <button mat-icon-button>
-            <mat-icon>power_settings_new</mat-icon>
+    <div fxFlex class="menu">
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <div fxFlex>
+          <button mat-icon-button *ngIf="userValue" (click)="logout()">
+            <mat-icon>power_settings_new</mat-icon>LogOut
           </button>
-          <mat-label>Déconnexion</mat-label>
-        </mat-list-item>
-      </mat-list>
+          <button mat-icon-button *ngIf="!userValue" routerLink="/auth">
+            <mat-icon>input</mat-icon>Login
+          </button>
+        </div>
+        <div fxFlex="5%"></div>
+        <div fxFlex *ngIf="userValue">
+          <mat-list-item>
+            <mat-label>{{userValue.email.split("@")[0]}}</mat-label>
+          </mat-list-item>
+        </div>
+      </div>
     </div>
   </div>
 </mat-toolbar>
