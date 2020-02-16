@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, DocumentReference, DocumentChangeAction } from '@angular/fire/firestore';
-import { TaskModel } from '../models/task.model';
+import { AngularFirestore, DocumentChangeAction, DocumentReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { TaskModel } from '../models/task.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,27 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 @import "themes/common/principal-theme.scss";
+/* You can add global styles to this file, and also import other style files */
+//@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url("/themes/font/Montserrat-SemiBold.otf") format("truetype");
+}
+
 body {
-    margin: 0;
-  }
-  
-  *{
-    font-family: Montserrat;
-  }
-  
-  .pointer {cursor: pointer;}
-  .grab {cursor: grab;}
-  
-  ::-webkit-scrollbar {
-    width: 12px;
-    background-color: #F5F5F5;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-    background-color: $color-scroll-primary;
-  }
-  
+  margin: 0;
+}
+
+*{
+  font-family: Montserrat;
+}
+
+.pointer {cursor: pointer;}
+.grab {cursor: grab;}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: $color-scroll-primary;
+}

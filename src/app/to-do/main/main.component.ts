@@ -1,10 +1,10 @@
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { BehaviorSubject } from 'rxjs';
 import { TaskModel } from 'src/app/shared/models/task.model';
 import { TaskService } from 'src/app/shared/services/task.service';
-import { MatDialog,MatDialogConfig } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-import { Subject, BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main',
