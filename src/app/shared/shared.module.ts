@@ -17,7 +17,8 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestor
     AngularFireModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFirestoreModule
+    AngularFirestoreModule.enablePersistence(),
+
   ],
   exports:[
     MaterialModule,
